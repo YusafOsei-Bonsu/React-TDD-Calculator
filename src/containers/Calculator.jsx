@@ -1,5 +1,5 @@
 import React from 'react';
-import Display from './Display';
+import Display from './Display.jsx';
 import '../styles/Calculator.css';
 
 class Calculator extends React.Component {
