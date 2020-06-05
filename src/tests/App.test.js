@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import App from '../containers/App';
 import Calculator from '../containers/Calculator'
 
-describe('App', () => {
+describe('App Component', () => {
   let wrapper;
 
   beforeEach(() => wrapper = shallow(<App />));
