@@ -1,8 +1,20 @@
 import React from 'react';
 
 class Calculator extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { displayValue: '0', numbers: [], operators: [], selectedOperator: '', storedValue: '' }
+    }
+
+    callOperator = () => console.log("call operation");
+
+    setOperator = () => console.log("set operation");
+
+    updateDisplay = () => console.log("update display");
+
     render() {
-        return <h1>Hello world</h1>;
+        return <div className="calculator-container" />;
     }
 }
 
