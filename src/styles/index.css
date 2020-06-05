@@ -1,25 +1,65 @@
+.display-container {
+  align-items: center;
+  background: var(--display-background-color);
+  display: flex;
+  height: var(--display-height);
+  padding: 0 4%;
+  width: var(--display-width);
+}
+
+.display-value {
+  color: var(--display-text-color);
+  font-size: var(--display-text-size);
+  font-family: var(--main-font);
+  font-weight: var(--display-text-weight);
+  margin-left: auto;
+  overflow: hidden;
+}
+
 :root {
   /* background colors */
-  --calculator-background-color: #696969;
+  --display-background-color: #1d1f1f;
 
   /* font */
   --main-font: 'Orbitron', sans-serif;
 
+  /* font colors */
+  --display-text-color: #23e000;
+
+  /* font sizes */
+  --display-text-size: 4em;
+
+  /* font weights */
+  --display-text-weight: 400;
+
   /* calculator dimensions */
   --calculator-height: 72%;
   --calculator-width: 36%;
+
+  /* display dimensions */
+  --display-height: 24%;
+  --display-width: 92%;
 }
 
-/* media query for tablet or smaller screen */
+/*
+media query for tablet or smaller screen
+*/
+
 @media screen and (max-width: 1024px) {
   :root {
+    /* font sizes */
+    --display-text-size: 10em;
+
     /* calculator dimensions */
     --calculator-height: 100%;
     --calculator-width: 100%;
   }
 }
 
-/* app CSS reset */
+/*
+app CSS reset
+*/
+
 body, div, p {
   margin: 0;
   padding: 0;
