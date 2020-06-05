@@ -1,4 +1,5 @@
 import React from 'react';
+import Display from './Display';
 import '../styles/Calculator.css';
 
 class Calculator extends React.Component {
@@ -15,7 +16,13 @@ class Calculator extends React.Component {
     updateDisplay = () => console.log("update display");
 
     render() {
-        return <div className="calculator-container" />;
+       const { displayValue } = this.state;
+
+       return (
+           <div className="calculator-container">
+            <Display displayValue={ displayValue } /> 
+           </div>
+       );
     }
 }
 
