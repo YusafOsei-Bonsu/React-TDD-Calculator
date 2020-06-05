@@ -18,6 +18,18 @@ describe('Keypad Component', () => {
     });
 
     // Checks if the keypad comp renders
-    test('should render a <div />', () => expect(wrapper.find('div').length).toEqual(1));
+    test('should render 3 <div />s', () => expect(wrapper.find('div').length).toEqual(3));
+
+    // Testing the rendering of numeric values of the keypad
+    test('renders the values of numbers', () => {
+        wrapper.setProps({numbers: ['0', '1', '2']});
+        expect(wrapper.find('.numbers-container').text()).toEqual('012');
+    });
+
+    // Checks if the operators get rendered
+    test('renders the values of operators', () => {
+        wrapper.setProps({operators: ['+', '-', '*', '/']});
+        expect(wrapper.find('.operators-container').text()).toEqual('+>->*>/>');
+    });
     
 });
