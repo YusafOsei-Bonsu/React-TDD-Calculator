@@ -8,6 +8,9 @@ describe('App Component', () => {
 
   beforeEach(() => wrapper = shallow(<App />));
 
+  // Takes a screenshot of the component (snapshot testing)
+  test('should render correctly', () => expect(wrapper).toMatchSnapshot());
+
   // Checks if the App component exists
   test('should render a <div />', () => expect(wrapper.find('div').length).toEqual(1));
 
