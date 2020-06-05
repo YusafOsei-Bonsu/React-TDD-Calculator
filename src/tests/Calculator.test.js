@@ -9,6 +9,9 @@ describe('Calculator Component', () => {
 
     beforeEach(() => wrapper = shallow(<Calculator />));
 
+    // Snapshot test for Calc component
+    test('should render correctly', () => expect(wrapper).toMatchSnapshot());
+
     // Checks if the component renders as a div
     test('should render a <div />', () => expect(wrapper.find('div').length).toEqual(1));
 
