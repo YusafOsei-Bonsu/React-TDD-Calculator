@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Display from '../containers/Display.js';
 import Calculator from '../containers/Calculator.js';
+import Keypad from '../containers/Keypad.js'
 
 describe('Calculator Component', () => {
     let wrapper;
@@ -16,5 +17,18 @@ describe('Calculator Component', () => {
         expect(wrapper.containsMatchingElement(<Display displayValue={wrapper.instance().state.displayValue} />)).toEqual(true);
     });
     
+    // Tests if the Display & Keypad component gets rendered in the Calc comp
+    test('should render the Display & Keypad components', () => {
+        expect(wrapper.containsAllMatchingElements([
+            <Display displayValue={ wrapper.instance().state.displayValue } />,
+            <Keypad 
+            callOperator={wrapper.instance().callOperator} 
+            numbers={wrapper.instance().state.numbers}
+            operators={wrapper.instance().state.operators}
+            setOperator={wrapper.instance().setOperator}
+            updateDisplay={wrapper.instance().updateDisplay}
+            />
+        ])).toEqual(true);
+    });
      
 });
