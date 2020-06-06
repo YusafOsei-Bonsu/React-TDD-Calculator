@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Display from '../containers/Display.jsx';
 import Calculator from '../containers/Calculator.jsx';
-import Keypad from '../components/Keypad.jsx'
+import Keypad from '../containers/Keypad.jsx'
 
 describe('Calculator Component', () => {
     let wrapper;

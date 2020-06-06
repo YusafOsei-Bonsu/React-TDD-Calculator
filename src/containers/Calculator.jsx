@@ -1,13 +1,18 @@
 import React from 'react';
 import Display from './Display.jsx';
-import Keypad from '../components/Keypad.jsx';
+import Keypad from '../containers/Keypad.jsx';
 import '../styles/Calculator.css';
 
 class Calculator extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { displayValue: '0', numbers: [], operators: [], selectedOperator: '', storedValue: '' }
+        this.state = { 
+            displayValue: '0', 
+            numbers: ['9', '8', '7', '6', '5', '4', '3', '2', '1', '.', '0', 'ce'], 
+            operators: ['/', 'x', '-', '+'], 
+            selectedOperator: '', 
+            storedValue: '' }
     }
 
     callOperator = () => console.log("call operation");
