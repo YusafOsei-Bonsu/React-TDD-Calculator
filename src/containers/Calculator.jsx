@@ -1,6 +1,6 @@
 import React from 'react';
 import Display from './Display.jsx';
-import Keypad from '../components/Keypad.jsx';
+import Keypad from '../containers/Keypad.jsx';
 import '../styles/Calculator.css';
 
 class Calculator extends React.Component {
