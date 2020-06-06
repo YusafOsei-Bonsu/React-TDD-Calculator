@@ -19,7 +19,25 @@ class Calculator extends React.Component {
 
     setOperator = () => console.log("set operation");
 
-    updateDisplay = () => console.log("update display");
+    updateDisplay = value => {
+        let { displayValue } = this.state;
+
+        // Prevents multiple '.'
+        if (value === '.' && displayValue.includes('.')) value = '';
+
+        if (value === "ce") {
+            // Deletes the last character in displayValue
+            displayValue = displayValue.substr(0, displayValue.length - 1);
+            // set displayValue to 0 if it's an empty string
+            if (displayValue === '') displayValue = '0';
+        } else {
+            // Replace displayValue with 'value' if displayValue is '0'. Otherwise, concatenate 'displayValue' and 'value'.
+            displayValue === '0' ? displayValue = value : displayValue += value;
+        }
+        
+        // Update the displayValue in the state
+        this.setState({ displayValue })
+    }
 
     render() {
        const { displayValue, numbers, operators} = this.state;
