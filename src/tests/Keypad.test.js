@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Keypad from '../components/Keypad.jsx';
+import Keypad from '../containers/Keypad.jsx';
 
 describe('Keypad Component', () => {
     let wrapper;
@@ -31,5 +31,7 @@ describe('Keypad Component', () => {
         wrapper.setProps({operators: ['+', '-', '*', '/']});
         expect(wrapper.find('.operators-container').text()).toEqual('+>->*>/>');
     });
-    
+
+    // Checks if the Key comp exists in the keypad
+    test('should render an instance of the Key component', () => expect(wrapper.find('Key').length).toEqual(1));
 });
