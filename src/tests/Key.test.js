@@ -15,6 +15,9 @@ describe('Key', () => {
         )
     });
 
+    // Snapshot testing for Key component
+    test('should render correctly', () => expect(wrapper).toMatchSnapshot());
+
     // Checking if the key component exists
     test('should render a <div />', () => expect(wrapper.find('div').length).toEqual(1));
     
