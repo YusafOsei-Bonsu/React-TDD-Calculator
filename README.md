@@ -7,7 +7,5 @@ This project concentrates on the development of a React-based calculator under t
 - Jest
 - Enzyme
 
-## What Did I Do?
-First, I created a test for the App component, which attempted to find a singular `<div />` tag. As a result of failing, I resolved this test by appending a singular `<div />` tag into the component.
-
 ## Blockers/Resolutions
+- Initially, I didn't know how to ignore snapshot test results as they were already committed to GitHub. Fortunately, after following instructions on [StackOverflow](https://stackoverflow.com/questions/7927230/remove-directory-from-remote-repository-after-adding-them-to-gitignore), I successfully removed the snapshot test results from GitHub using the following steps: entering `git rm --cached '__snapshots__' -r` in the terminal, wrote the directory path of `__snapshot__` into  `.gitignore` and finally, made a commit. 
