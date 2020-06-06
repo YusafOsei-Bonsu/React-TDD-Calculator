@@ -18,7 +18,7 @@ describe('Keypad Component', () => {
     });
 
     // Checks if the keypad comp renders
-    test('should render 3 <div />s', () => expect(wrapper.find('div').length).toEqual(3));
+    test('should render 4 <div />s', () => expect(wrapper.find('div').length).toEqual(4));
 
     // Testing the rendering of numeric values of the keypad
     test('renders the values of numbers', () => {
