@@ -31,6 +31,7 @@ describe('Keypad Component', () => {
     });
 });
 
+// Mounting Keypad comp to gain access to the actual contents within the component
 describe('Mounted Keypad', () => {
     let wrapper;
 
