@@ -69,3 +69,59 @@ describe('Mounted Calculator', () => {
     });
 
 });
+
+// Tests for the updateDisplay method
+describe('updateDisplay method', () => {
+    let wrapper;
+
+    beforeEach(() => wrapper = shallow(<Calculator />));
+    
+    // Tests the updating of the displayValue
+    test('updates displayValue', () => {
+      wrapper.instance().updateDisplay('5');
+      expect(wrapper.state('displayValue')).toEqual('5');
+    });
+    
+    // Tests the concatenation of the value to be displayed
+    test('concatenates displayValue', () => {
+      wrapper.instance().updateDisplay('5');
+      wrapper.instance().updateDisplay('0');
+      expect(wrapper.state('displayValue')).toEqual('50');
+    });
+    
+    // Testing the change (in displayValue) from 0 to 5
+    test('removes leading "0" from displayValue', () => {
+      wrapper.instance().updateDisplay('0');
+      expect(wrapper.state('displayValue')).toEqual('0');
+      wrapper.instance().updateDisplay('5');
+      expect(wrapper.state('displayValue')).toEqual('5');
+    });
+    
+    // Testing the prevention of entering multiple zeroes
+    test('prevents multiple leading "0"s from displayValue', () => {
+      wrapper.instance().updateDisplay('0');
+      wrapper.instance().updateDisplay('0');
+      expect(wrapper.state('displayValue')).toEqual('0');
+    });
+    
+    // Testing the removal of the displayValue's last character
+    test('removes last char of displayValue', () => {
+      wrapper.instance().updateDisplay('5');
+      wrapper.instance().updateDisplay('0');
+      wrapper.instance().updateDisplay('ce');
+      expect(wrapper.state('displayValue')).toEqual('5');
+    });
+    
+    // Testing the prevention of entering multiple '.'s
+    test('prevents multiple instances of "." in displayValue', () => {
+      wrapper.instance().updateDisplay('.');
+      wrapper.instance().updateDisplay('.');
+      expect(wrapper.state('displayValue')).toEqual('.');
+    });
+    
+    // Testing the setting of displayValue to 0 if it's an empty string
+    test('will set displayValue to "0" if displayValue is equal to an empty string', () => {
+      wrapper.instance().updateDisplay('ce');
+      expect(wrapper.state('displayValue')).toEqual('0');
+    });   
+});
