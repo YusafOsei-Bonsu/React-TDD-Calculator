@@ -17,6 +17,9 @@ describe('Keypad Component', () => {
         );
     });
 
+    // Snapshot test for the Keypad comp
+    test('should render correctly', () => expect(wrapper).toMatchSnapshot());
+
     // Checks if the keypad comp renders
     test('should render 4 <div />s', () => expect(wrapper.find('div').length).toEqual(4));
 
