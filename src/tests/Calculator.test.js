@@ -198,4 +198,13 @@ describe('callOperator', () => {
     expect(wrapper.state('displayValue')).toEqual('6');
   });
   
+    // // Tests the calculator's division computation
+  test('should update displayValue to the quotient of storedValue and displayValue', () => {
+    wrapper.setState({ storedValue: '3' });
+    wrapper.setState({ displayValue: '2' });
+    wrapper.setState({ selectedOperator: '/' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayValue')).toEqual('1.5');
+  });
+
 });

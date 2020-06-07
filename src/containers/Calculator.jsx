@@ -37,6 +37,9 @@ class Calculator extends React.Component {
             case 'x':
                 displayValue *= storedValue;
                 break;
+            case '/':
+                displayValue = storedValue / displayValue;
+                break;
             default:
                 // set displayValue to 0 if no case is satisfied
                 displayValue = 0;
