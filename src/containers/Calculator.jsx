@@ -15,7 +15,36 @@ class Calculator extends React.Component {
             storedValue: '' }
     }
 
-    callOperator = () => console.log("call operation");
+    // computes calculation
+    callOperator = () => {
+        let { displayValue, selectedOperator, storedValue } = this.state;
+
+        // Temp storage for updating state storedValue
+        const updateStoredValue = displayValue;
+
+        // parse strings as integers
+        displayValue = parseInt(displayValue, 10);
+        storedValue = parseInt(storedValue, 10);
+
+        switch (selectedOperator) {
+            // If the operator is a '+', compute an addition
+            case '+':
+                displayValue += storedValue;
+                break;
+            default:
+                // set displayValue to 0 if no case is satisfied
+                displayValue = 0;
+        }
+
+        // converts displayValue into a string
+        displayValue = displayValue.toString();
+        // reset selectedOperator
+        selectedOperator = '';
+        // Check for 'Nan' or 'Infinity', if true set displayValue to '0'
+        if (displayValue === 'NaN' || displayValue === 'Infinity') displayValue = '0';
+
+        this.setState({ displayValue, selectedOperator, storedValue: updateStoredValue });
+    }
 
     setOperator = value => {
         let { displayValue, selectedOperator, storedValue } = this.state;

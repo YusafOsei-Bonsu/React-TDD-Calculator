@@ -164,3 +164,21 @@ describe('setOperator method', () => {
   });
   
 });
+
+// Tests for the callOperator method
+describe('callOperator', () => {
+  let wrapper;
+
+  beforeEach(() => wrapper = shallow(<Calculator />));
+
+  // Tests the calculator's addition computation
+  test('should update displayValue to the sum of storedValue and displayValue', () => {
+    wrapper.setState({ storedValue: '3' });
+    wrapper.setState({ displayValue: '2' });
+    wrapper.setState({ selectedOperator: '+' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayValue')).toEqual('5');
+  });
+  
+
+});
