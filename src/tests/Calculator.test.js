@@ -125,3 +125,42 @@ describe('updateDisplay method', () => {
       expect(wrapper.state('displayValue')).toEqual('0');
     });   
 });
+
+// Tests for the setOperator method
+describe('setOperator method', () => {
+  let wrapper;
+
+  beforeEach(() => wrapper = shallow(<Calculator />));
+
+  // Test if the selected operator changes from a '+' to a '/' upon button press
+  test('should update the value of selectedOperator', () => {
+    wrapper.instance().setOperator('+');
+    expect(wrapper.state('selectedOperator')).toEqual('+');
+    wrapper.instance().setOperator('/');
+    expect(wrapper.state('selectedOperator')).toEqual('/');
+  });
+
+  // Tests if the displayValue is updated with the value of the storedValue
+  test('should update displayValue with the value of the storedValue', () => {
+    wrapper.setState({ displayValue: '5' });
+    wrapper.instance().setOperator('+');
+    expect(wrapper.state('storedValue')).toEqual('5');
+  });
+  
+  // Tests if the displayValue is set to 0 after pressing an operator (i.e. '+')
+  test('should update the value of displayValue to 0', () => {
+    wrapper.setState({ displayValue: '5' });
+    wrapper.instance().setOperator('+');
+    expect(wrapper.state('displayValue')).toEqual('0');
+  });
+
+  // Testing the scenario where the selectedOperator isn't empty; therefore, storedValue isn't updated
+  test('selectedOperator is not an empty string, does not update storedValue', () => {
+    wrapper.setState({ displayValue: '5' });
+    wrapper.instance().setOperator('+');
+    expect(wrapper.state('storedValue')).toEqual('5');
+    wrapper.instance().setOperator('-');
+    expect(wrapper.state('storedValue')).toEqual('5');
+  });
+  
+});
