@@ -34,6 +34,9 @@ class Calculator extends React.Component {
             case '-':
                 displayValue = storedValue - displayValue;
                 break;
+            case 'x':
+                displayValue *= storedValue;
+                break;
             default:
                 // set displayValue to 0 if no case is satisfied
                 displayValue = 0;

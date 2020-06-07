@@ -188,5 +188,14 @@ describe('callOperator', () => {
     wrapper.instance().callOperator();
     expect(wrapper.state('displayValue')).toEqual('1');
   });
+
+    // Tests the calculator's multiplication computation
+  test('should update display to the product of storedValue and displayValue', () => {
+    wrapper.setState({ storedValue: '3' });
+    wrapper.setState({ displayValue: '2' });
+    wrapper.setState({ selectedOperator: 'x' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayValue')).toEqual('6');
+  });
   
 });
